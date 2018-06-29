@@ -4,6 +4,7 @@
     <text >江西高超网络服务有限公司</text>
   </view>
   <view class='clockBtn'>
-    <button>打卡</button>
+    <button bindtap="clock">打卡</button>
   </view>
+  <map latitude="27.12" longitude="114.8977" markers="{{markers}}" circles="[100,100]" color="#000000AA" fillColor="#000000AA" />
 </view>
