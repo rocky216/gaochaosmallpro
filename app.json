@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/clock/clock",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/declare/declare",
+    "pages/track/track",
+    "pages/user/user"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#1296db",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "images/home_active.png",
+        "iconPath": "images/home.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/clock_active.png",
+        "iconPath": "images/clock.png",
+        "pagePath": "pages/clock/clock",
+        "text": "打卡"
+      },
+      {
+        "selectedIconPath": "images/track_active.png",
+        "iconPath": "images/track.png",
+        "pagePath": "pages/track/track",
+        "text": "巡跟"
+      },
+      {
+        "selectedIconPath": "images/user_active.png",
+        "iconPath": "images/user.png",
+        "pagePath": "pages/user/user",
+        "text": "我的"
+      }
+    ]
+  }
+}

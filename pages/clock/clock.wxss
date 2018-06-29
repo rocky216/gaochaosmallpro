@@ -1,0 +1,12 @@
+/* pages/clock/clock.wxss */
+.click {
+  width: 100%;
+}
+.text {
+  text-align: center;
+  margin-top: 100rpx;
+}
+.clockBtn {
+  margin-top: 100rpx;
+  padding: 20rpx;
+}
