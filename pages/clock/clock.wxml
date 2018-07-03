@@ -2,9 +2,13 @@
 <view class="clock">
   <view class='text'>
     <text >江西高超网络服务有限公司</text>
+    <view style='margin-top: 30rpx;'>
+      <text wx:if="{{isClock && isWifi}}">定位中...</text>
+      <text wx:if="{{!isClock || !isWifi}}" >您已在打卡范围内</text>
+    </view>
   </view>
   <view class='clockBtn'>
-    <button bindtap="clock">打卡</button>
+    <button type='primary' disabled="{{isClock && isWifi}}">打卡</button>
   </view>
-  <map latitude="27.12" longitude="114.8977" markers="{{markers}}" circles="[100,100]" color="#000000AA" fillColor="#000000AA" />
+  <!-- <text style='word-break:break-all;'>{{info}}</text> -->
 </view>

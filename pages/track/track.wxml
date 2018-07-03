@@ -1,2 +1,4 @@
 <!--pages/track/track.wxml-->
-<text>pages/track/track.wxml</text>
+<view class='track'>
+  
+</view>

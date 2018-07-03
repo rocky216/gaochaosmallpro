@@ -6,7 +6,6 @@
     "pages/declare/declare",
     "pages/track/track",
     "pages/user/user"
-    
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -10,3 +10,10 @@
   margin-top: 100rpx;
   padding: 20rpx;
 }
+.clockBtn button {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  line-height: 200rpx;
+  border:none;
+}

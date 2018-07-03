@@ -5,34 +5,51 @@ Page({
    * 页面的初始数据
    */
   data: {
-    markers: [{
-      iconPath: "/images/clock.png",
-      id: 0,
-      latitude: 27.12,
-      longitude: 114.8977,
-      width: 50,
-      height: 50
-    }],
+    isClock: true,
+    isWifi: true,
+    timer: null,
+    info: ''
   }, 
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
-    // wx.chooseLocation({
-    //   success: function (res) {
-    //     console.log(res)
-    //   },
-    // })
-    
-  },
-  clock: function(){
-    wx.getLocation({
-      type: "wgs84",
-      success: function(res){
-        console.log(res)
 
+  },
+  startWifi: function () {
+    var _this = this;
+    wx.startWifi({
+      success: function () {
+        wx.getConnectedWifi({
+          success: function (res) {
+            console.log(res)
+            console.log(res.wifi.SSID == "TP-LINK_ECFC", 666)
+            if (res.wifi.SSID=="TP-LINK_ECFC"){
+              _this.setData({ isWifi: false })
+            }else{
+              _this.setData({ isWifi: true })
+            }
+          }
+        })
+      }
+    })
+  },
+  getLatLon: function(){
+    var _this = this
+    wx.getLocation({
+      type: "gcj02",
+      success: function(res){
+        var lat = res.latitude
+        var lon = res.longitude
+        var len = _this.getDistance(lat, lon, "27.116491", "114.90259")
+        var stand = res.accuracy
+        _this.setData({ info: JSON.stringify(res)})
+        if (len <= stand){
+          _this.setData({isClock: false})
+        }else{
+          _this.setData({ isClock: true })
+        }
       }
     })
   },
@@ -41,15 +58,21 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let len = this.getDistance("27.12", "114.8977", "27.12005", "114.89775")
-    console.log(len)
+    var _this = this;
+    this.timer = setInterval(function () {
+      _this.getLatLon()
+      _this.startWifi()
+    }, 3000)
+
+    // let len = this.getDistance("27.1448", "114.99457", "27.12", "114.8977" )
+    // console.log(len)
   },
   getDistance: function (lat1, lng1, lat2, lng2) {
     lat1 = lat1 || 0;
@@ -75,14 +98,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+    clearInterval(this.timer)
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+    clearInterval(this.timer)
   },
 
   /**
