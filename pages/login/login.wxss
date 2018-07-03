@@ -1,0 +1,11 @@
+/* pages/login/login.wxss */
+
+.login_wrap {
+  margin-top: 50rpx;
+  padding: 20rpx;
+}
+.login_item {
+  background-color: #fff;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}

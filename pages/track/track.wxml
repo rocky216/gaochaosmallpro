@@ -1,4 +1,12 @@
 <!--pages/track/track.wxml-->
 <view class='track'>
-  
+  <view class='track_item'>
+    <text>保安巡更</text>
+  </view>
+  <view class='track_item'>
+    <text>保洁</text>
+  </view>
+  <view class='track_item'>
+    <text>负责人检查</text>
+  </view>
 </view>

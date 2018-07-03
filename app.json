@@ -1,10 +1,11 @@
 {
   "pages": [
+    "pages/login/login",
+    "pages/track/track",
     "pages/clock/clock",
     "pages/index/index",
     "pages/logs/logs",
     "pages/declare/declare",
-    "pages/track/track",
     "pages/user/user"
   ],
   "window": {
@@ -34,7 +35,7 @@
         "selectedIconPath": "images/track_active.png",
         "iconPath": "images/track.png",
         "pagePath": "pages/track/track",
-        "text": "巡跟"
+        "text": "考勤"
       },
       {
         "selectedIconPath": "images/user_active.png",
