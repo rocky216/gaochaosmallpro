@@ -7,9 +7,12 @@
   margin-top: 25rpx;
   box-sizing: border-box;
   background-color: #fff;
-  padding: 25rpx;
   border-bottom: 1px solid #ddd;
   border-top: 1px solid #ddd;
+}
+.track_item navigator {
+  display: block;
+  padding: 25rpx;
 }
 .track_item button {
   width: 100%;

@@ -1,11 +1,12 @@
 {
   "pages": [
-    "pages/login/login",
+    "pages/index/index",
     "pages/track/track",
     "pages/clock/clock",
-    "pages/index/index",
+    "pages/login/login",
     "pages/logs/logs",
     "pages/declare/declare",
+    "pages/trackItem/trackItem",
     "pages/user/user"
   ],
   "window": {

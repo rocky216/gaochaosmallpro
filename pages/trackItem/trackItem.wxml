@@ -1,0 +1,6 @@
+<!--pages/trackItem/trackItem.wxml-->
+<view class='trackItem'>
+  <view class='upload'>
+    <button type='primary' bindtap='chooseImageTap'>拍照上传</button>
+  </view>
+</view>

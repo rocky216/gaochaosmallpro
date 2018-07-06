@@ -1,55 +1,44 @@
-// pages/login/login.js
-var utils = require("../../utils/util.js")
-var app = getApp()
+// pages/trackItem/trackItem.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    username: '',
-    password: ''
-  }, 
+  
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+  
   },
-  usernameHandle: function (event){
-    this.setData({ username: event.detail.value})
-  },
-  passwordHandle: function (event){
-    this.setData({ password: event.detail.value })
-  },
-  goLogin: function(){
+  chooseImageTap: function () {
     var _this = this
-    const options = {
-      url: "/Common/CkUser/login",
-      method: "post",
-      data:{
-        mobile: this.data.username,
-        password: this.data.password
+    wx.chooseImage({
+      sourceType: ['camera'],
+      success: function (res) {
+        console.log(res)
+        _this.uploadPhoto(res.tempFilePaths[0])
       }
-    }
-    utils.fetch(options,function(res){
-      _this.getToken(res.ticket)
-      
     })
   },
-  getToken(ticket){
-    const options={
-      url: "/Common/CkUser/get_token",
-      method: "post",
-      data: {
-        ticket: ticket
+  uploadPhoto: function (filePath) {
+    var _this = this
+    wx.uploadFile({
+      url: "http://192.168.1.106/gaochao/Api/User/CkClock/workClock",
+      name: "img",
+      header: { 'content-type': 'application/x-www-form-urlencoded' },
+      filePath: filePath,
+      formData: {
+        "type": "1",
+        "token": wx.getStorageSync('token')
+      },
+      success: function (res) {
+        console.log(res, 666)
       }
-    }
-    utils.fetch(options, function(res){
-      wx.setStorageSync("token", res.token)
-      app.isLogin()
     })
-
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

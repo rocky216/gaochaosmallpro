@@ -1,0 +1,10 @@
+/* pages/trackItem/trackItem.wxss */
+.upload {
+  margin-top: 100rpx;
+}
+.upload button {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  line-height: 200rpx;
+}

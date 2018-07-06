@@ -1,4 +1,15 @@
 <!--index.wxml-->
 <view class="container">
-  <view></view>
+  <view class='swiper'>
+    <swiper circular autoplay >
+      <swiper-item>  
+        <image src="/images/banner_01.jpg" class="slide-image"  />  
+      </swiper-item>
+      <swiper-item>  
+        <image src="/images/banner_02.jpg" class="slide-image"  />  
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <view>112</view>
 </view>

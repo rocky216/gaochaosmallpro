@@ -1,4 +1,7 @@
 // pages/clock/clock.js
+var utils = require("../../utils/util.js")
+var app = getApp()
+
 Page({
 
   /**
@@ -15,7 +18,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
+  },
+  whetherClock:function(){
+    const options={
+      url: "/User/CkClock/checkClock",
+      method: "post",
+      data: {
+        token: wx.getStorageSync('token')
+      }
+    }
+    utils.fetch(options, function(res){
+      console.log(res)
+    })
   },
   startWifi: function () {
     var _this = this;
@@ -23,8 +38,6 @@ Page({
       success: function () {
         wx.getConnectedWifi({
           success: function (res) {
-            console.log(res)
-            console.log(res.wifi.SSID == "TP-LINK_ECFC", 666)
             if (res.wifi.SSID=="TP-LINK_ECFC"){
               _this.setData({ isWifi: false })
             }else{
