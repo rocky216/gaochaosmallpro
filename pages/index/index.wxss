@@ -1,9 +1,60 @@
 /**index.wxss**/
 .swiper {
   width: 100%;
-  height: 280rpx;
+  height: 400rpx;
+}
+.swiper swiper {
+  height: 100%;
 }
 .swiper swiper-item image {
+  width: 100%;
+  height: 100%;
+}
+.nav_item {
+  display: inline-block;
+  padding: 20rpx;
+}
+.nav_item.active {
+  color: red;
+  border-bottom: 1px solid red;
+}
+.scrollSwiper {
+  border-bottom: 1px solid #ddd;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.news_item {
+  padding: 20rpx 15rpx 20rpx 90rpx;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+.source {
+  color: #999;
+  margin-top: 20rpx;
+  overflow: hidden;
+}
+.follow {
+  float: right;
+}
+.follow image {
+  width: 30rpx;
+  height: 30rpx;
+  float: left;
+  margin: 6rpx 10rpx 0 0
+}
+.head {
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  top: 15rpx;
+  left: 20rpx;
+}
+.head image {
   width: 100%;
   height: 100%;
 }

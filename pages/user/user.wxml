@@ -1,2 +1,32 @@
 <!--pages/user/user.wxml-->
-<text>pages/user/user.wxml</text>
+<view class='user'>
+   <view class='head_wrap'>
+    <view class='head'>
+      <image src='/images/user_active.png'></image>
+      <view>
+        <text>1888888888</text>
+      </view>
+    </view>
+  </view> 
+
+  <view class='funcList'>
+    <view class='func_item'>
+      <image src='/images/user_declare.png'></image>
+      <view>
+        <text>申报</text>
+      </view>
+    </view>
+    <view class='func_item'>
+      <image src='/images/reimb.png'></image>
+      <view>
+        <text>报销</text>
+      </view>
+    </view>
+    <view class='func_item'>
+      <image src='/images/recode.png'></image>
+      <view>
+        <text>打卡记录</text>
+      </view>
+    </view>
+  </view>
+</view>
