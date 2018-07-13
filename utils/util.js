@@ -1,5 +1,5 @@
 const app = getApp();
-const baseUrl = "http://192.168.1.106/gaochao/Api";
+const baseUrl = "http://192.168.1.107/gaochao/Api";
 
 
 function extend(settings, opt) {
@@ -40,10 +40,15 @@ function fetch(opt, next, type = false) {
         if (data.status=="0") {
           wx.showToast({
             title: data.msg || "请求失败",
+            icon: "none",
             duration: 1500
           });
           
-        } else {
+        } else if (data.status == "-1"){
+          wx.reLaunch({
+            url: "/pages/login/login"
+          })
+        }else{
           next(data.info);
           // wx.setStorageSync(cache_key, data.res)
         }

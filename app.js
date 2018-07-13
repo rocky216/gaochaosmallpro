@@ -1,7 +1,7 @@
 //app.js
 App({
   onLaunch: function() {
-    this.isLogin()
+    // this.isLogin()
   },
   isLogin: function(){
     var token = wx.getStorageSync('token')
@@ -10,7 +10,7 @@ App({
         url: "/pages/index/index"
       })
     }else{
-      wx.navigateTo({
+      wx.reLaunch({
         url: "/pages/login/login"
       })
     }

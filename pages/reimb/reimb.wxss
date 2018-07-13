@@ -1,0 +1,14 @@
+/* pages/reimb/reimb.wxss */
+.reimb_item {
+  background: #fff;
+  padding:30rpx 20rpx;
+  margin-top: 20rpx;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.reimb_item  text {
+  float: right;
+}
+.reimb_item textarea {
+  width: 100%;
+}

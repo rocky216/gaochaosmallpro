@@ -11,16 +11,28 @@
 
   <view class='funcList'>
     <view class='func_item'>
-      <image src='/images/user_declare.png'></image>
-      <view>
-        <text>申报</text>
-      </view>
+      <navigator url='/pages/reimb/reimb'>
+        <image src='/images/leave.png'></image>
+        <view>
+          <text>请假</text>
+        </view>
+      </navigator>
     </view>
     <view class='func_item'>
-      <image src='/images/reimb.png'></image>
-      <view>
-        <text>报销</text>
-      </view>
+      <navigator url='/pages/reimb/reimb'>
+        <image src='/images/user_declare.png'></image>
+        <view>
+          <text>申报</text>
+        </view>
+      </navigator>
+    </view>
+    <view class='func_item'>
+      <navigator url='/pages/reimb/reimb'>
+        <image src='/images/reimb.png'></image>
+        <view>
+          <text>报销</text>
+        </view>
+      </navigator>
     </view>
     <view class='func_item'>
       <image src='/images/recode.png'></image>

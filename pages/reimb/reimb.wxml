@@ -1,0 +1,50 @@
+<!--pages/reimb/reimb.wxml-->
+<view class='reimb'>
+  <view class='reimbList'>
+    <view class='reimb_item'>
+      <label>
+        <picker custom-item="{{customItem}}" bindchange="bindPickerChange" value="{{index}}" range="{{types}}" range-key="{{'title'}}">
+          <view >
+            当前选择：<text>{{types[index]['title']}}</text>
+          </view>
+        </picker>
+      </label>
+    </view>
+    <view class='reimb_item'>
+      <label>
+        <picker mode="multiSelector" value='{{startTime}}'  range="{{startTimeArray}}" bindchange="bindDateChangeStart" >
+          <view>
+            开始时间： <text>{{startTime}}</text>
+          </view>
+        </picker>
+      </label>
+    </view>
+    <view class='reimb_item'>
+      <label>
+        <picker mode="multiSelector" value='{{endTime}}'  range="{{startTimeArray}}" bindchange="bindDateChangeEnd" >
+          <view>
+            结束时间： <text>{{endTime}}</text>
+          </view>
+        </picker>
+      </label>
+    </view>
+    <view class='reimb_item'>
+      <label>
+        <view>
+          请假时长 <text>{{totalDay}}天</text>
+        </view>
+      </label>
+    </view>
+    <view class='reimb_item'>
+      <label>
+        <view>
+          请假事由 <textarea maxlength="-1" bindinput="textareaHandle" ></textarea>
+        </view>
+      </label>
+    </view>
+    <view class='reimb_item'>
+      <button type='primary' bindtap="submitHandle">提交</button>
+    </view>
+  </view>
+
+</view>

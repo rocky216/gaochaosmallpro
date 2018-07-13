@@ -1,0 +1,45 @@
+<!--pages/apply/apply.wxml-->
+<view class='apply'>
+   <view class='reimb_item'>
+      <label>
+        <picker>
+          <view >
+            报销类型：<text>sa</text>
+          </view>
+        </picker>
+      </label>
+   </view>
+   <view class='reimb_item'>
+      <label>
+        <picker model="date">
+          <view >
+            发生时间：<text>sa</text>
+          </view>
+        </picker>
+      </label>
+   </view>
+   <view class='reimb_item'>
+      <label>
+        <view >
+          费用金额：<input>sa</input>
+        </view>
+      </label>
+   </view>
+   <view class='reimb_item'>
+      <label>
+        <view >
+          费用说明：<textarea></textarea>
+        </view>
+      </label>
+   </view>
+   <view class='reimb_item'>
+      <label>
+        <view >
+          附件/图片：
+          <view class='enclosure'>
+            <image src='/images/enclosure.png'></image>
+          </view>
+        </view>
+      </label>
+   </view>
+</view>

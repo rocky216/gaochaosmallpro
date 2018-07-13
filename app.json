@@ -1,9 +1,11 @@
 {
   "pages": [
-    "pages/user/user",
+    "pages/apply/apply",
     "pages/index/index",
-    "pages/track/track",
+    "pages/reimb/reimb",
     "pages/clock/clock",
+    "pages/user/user",
+    "pages/track/track",
     "pages/login/login",
     "pages/logs/logs",
     "pages/declare/declare",

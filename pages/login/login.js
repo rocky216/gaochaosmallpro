@@ -33,20 +33,21 @@ Page({
       }
     }
     utils.fetch(options,function(res){
-      _this.getToken(res.ticket)
+      _this.getToken(res)
       
     })
   },
-  getToken(ticket){
+  getToken(data){
     const options={
       url: "/Common/CkUser/get_token",
       method: "post",
       data: {
-        ticket: ticket
+        ticket: data.ticket
       }
     }
     utils.fetch(options, function(res){
       wx.setStorageSync("token", res.token)
+      wx.setStorageSync("district_id", data.district_id)
       app.isLogin()
     })
 

@@ -9,5 +9,8 @@ Page({
   onLoad: function () {
     app.isLogin()
   },
+  onShow: function(){
+    app.isLogin()
+  }
   
 })

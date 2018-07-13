@@ -1,0 +1,25 @@
+/* pages/apply/apply.wxss */
+.reimb_item {
+  background: #fff;
+  padding:30rpx 20rpx;
+  margin-top: 20rpx;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.reimb_item  text {
+  float: right;
+}
+.reimb_item textarea {
+  width: 100%;
+}
+.reimb_item image {
+  width: 50rpx;
+  height: 50rpx;
+}
+.enclosure {
+  margin-top: 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+  padding: 10rpx;
+  border: 1px solid #ddd;
+}
