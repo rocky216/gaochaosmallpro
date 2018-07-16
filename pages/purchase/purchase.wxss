@@ -1,4 +1,5 @@
-/* pages/apply/apply.wxss */
+/* pages/baoxiao/baoxiao.wxss */
+
 .reimb_item {
   background: #fff;
   padding:30rpx 20rpx;
@@ -11,6 +12,7 @@
 }
 .reimb_item textarea {
   width: 100%;
+  height: 100rpx;
 }
 .reimb_item input {
   text-align: right;
@@ -20,6 +22,19 @@
 .reimb_item span {
   float: right;
   margin-left: 10rpx;
+}
+.detailText {
+  margin: 20rpx;
+  font-size: 26rpx;
+  color: #666;
+}
+.detailText text:nth-child(2) {
+  float: right;
+  color: green;
+}
+.addDetail {
+  margin: 20rpx;
+  color: green;
 }
 .reimb_item image {
   width: 50rpx;

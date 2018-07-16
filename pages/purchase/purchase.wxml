@@ -1,0 +1,78 @@
+<view class='purchase'>
+  <view class='reimb_item'>
+    <label>
+      <view >
+        申请事由：<input bindinput="getReason"></input>
+      </view>
+    </label>
+  </view>
+  <view class='reimb_item'>
+    <label>
+      <picker mode="date" bindchange="getDeliverTime" >
+        <view >
+          期望交付日期：<text>{{deliver_time}}</text>
+        </view>
+      </picker>
+    </label>
+  </view>
+  <view wx:for="{{details}}" wx:key="{{index}}" >
+    <view class='detailText'>
+      <text>采购明细</text>
+      <text bindtap='delete' data-index="{{index}}">删除</text>
+    </view>
+    <view class='reimb_item'>
+      <label>
+        <view >
+          物品名称：<input bindinput="getName" value='{{item.name}}' data-index="{{index}}"></input>
+        </view>
+      </label>
+    </view>
+    <view class='reimb_item'>
+      <label>
+        <view >
+          型号或规格：<input bindinput="getModelSpec" value='{{item.model_spec}}' data-index="{{index}}" ></input>
+        </view>
+      </label>
+    </view>
+    <view class='reimb_item'>
+      <label>
+        <view >
+          数量：<input bindinput="getNum" value='{{item.num}}' data-index="{{index}}"></input>
+        </view>
+      </label>
+    </view>
+    <view class='reimb_item'>
+      <label>
+        <view >
+          金额：<input bindinput="getMoney" value='{{item.money}}' data-index="{{index}}"></input>
+        </view>
+      </label>
+    </view>
+    <view class='reimb_item'>
+      <label> 
+        <view >
+          备注： <textarea bindinput="getRemark" value='{{item.remark}}' data-index="{{index}}"></textarea>
+        </view>
+      </label>
+    </view>
+  </view>
+  <view class='addDetail' bindtap='addDetail'>
+    <text>添加明细</text>
+  </view>
+  <view class='reimb_item'>
+      <label>
+        <view > 
+          附件/图片：
+          <view class='enclosure'  bindtap='chooseImageTap'>
+            <image src='/images/enclosure.png'></image>
+          </view>
+          <view>
+            <image wx:for="{{tempFilePaths}}" wx:key="{{index}}" src="{{item}}"></image>
+          </view>
+        </view>
+      </label>
+   </view>
+   <view class='reimb_item'>
+    <button type='primary' bindtap='submitHandlen'>提交</button>
+   </view>
+</view>

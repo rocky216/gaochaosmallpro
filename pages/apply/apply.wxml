@@ -2,44 +2,57 @@
 <view class='apply'>
    <view class='reimb_item'>
       <label>
-        <picker>
+        <picker range="{{types}}" value="{{index}}" range-key="{{'title'}}" bindchange="typesHandlen">
           <view >
-            报销类型：<text>sa</text>
+            报销类型：<text>{{index>-1?types[index]["title"]:''}}</text>
+          </view>
+        </picker>
+      </label>
+   </view>
+   <view class='reimb_item'>
+    <label>
+      <view >
+        报销事由：<input bindinput='getReason'></input>
+      </view>
+    </label>
+   </view>
+   <view class='reimb_item'>
+      <label>
+        <picker mode="date" value="{{startTime}}"  bindchange="bindDateChange" >
+          <view >
+            发生时间：<text>{{startTime}}</text>
           </view>
         </picker>
       </label>
    </view>
    <view class='reimb_item'>
       <label>
-        <picker model="date">
-          <view >
-            发生时间：<text>sa</text>
-          </view>
-        </picker>
-      </label>
-   </view>
-   <view class='reimb_item'>
-      <label>
         <view >
-          费用金额：<input>sa</input>
+          费用金额：<span>元</span><input type="number" value="{{money}}" bindinput="getMoney">sa</input>
         </view>
       </label>
    </view>
    <view class='reimb_item'>
       <label>
         <view >
-          费用说明：<textarea></textarea>
+          费用说明：<textarea bindinput="getExplain"></textarea>
         </view>
       </label>
    </view>
    <view class='reimb_item'>
       <label>
-        <view >
+        <view > 
           附件/图片：
-          <view class='enclosure'>
+          <view class='enclosure'  bindtap='chooseImageTap'>
             <image src='/images/enclosure.png'></image>
           </view>
+          <view>
+            <image wx:for="{{tempFilePaths}}" wx:key="{{index}}" src="{{item}}"></image>
+          </view>
         </view>
       </label>
+   </view>
+   <view class='reimb_item'>
+    <button type='primary' bindtap='submitHandlen'>提交</button>
    </view>
 </view>

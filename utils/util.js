@@ -1,5 +1,5 @@
 const app = getApp();
-const baseUrl = "http://192.168.1.107/gaochao/Api";
+const baseUrl = "http://192.168.1.106/gaochao/Api";
 
 
 function extend(settings, opt) {
@@ -70,5 +70,6 @@ function fetch(opt, next, type = false) {
 }
 
 module.exports = {
-  fetch: fetch
+  fetch: fetch,
+  baseUrl: baseUrl
 }
