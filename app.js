@@ -16,7 +16,6 @@ App({
     }
   },
   uploadimg: function (data){
-    
     var that= this,
     i=data.i ? data.i : 0,//当前上传的哪张图片
     success=data.success ? data.success : 0,//上传成功的个数
@@ -31,7 +30,6 @@ App({
       formData: data.formData,//这里是上传图片时一起上传的数据
       success: (resp) => {
         success++;//图片上传成功，图片上传成功的变量+1
-        console.log(JSON.parse(resp.data), 12121)
         that.globalData.reimburse_id = JSON.parse(resp.data).info.reimburse_id
         console.log(i);
         //这里可能有BUG，失败也会执行这里,所以这里应该是后台返回过来的状态码为成功时，这里的success才+1
@@ -59,13 +57,13 @@ App({
     });
   },
   uploadimgBuy: function (data) {
-
+    
     var that = this,
       i = data.i ? data.i : 0,//当前上传的哪张图片
       success = data.success ? data.success : 0,//上传成功的个数
       fail = data.fail ? data.fail : 0;//上传失败的个数
     data.formData.buy_id = that.globalData.buy_id
-    console.log(data.formData.buy_id, 6666)
+    
     wx.uploadFile({
       url: data.url,
       header: { 'content-type': 'application/x-www-form-urlencoded' },
@@ -74,8 +72,10 @@ App({
       formData: data.formData,//这里是上传图片时一起上传的数据
       success: (resp) => {
         success++;//图片上传成功，图片上传成功的变量+1
-        console.log(resp, 12121)
+        console.log(resp, 1111)
         that.globalData.buy_id = JSON.parse(resp.data).info.buy_id
+        console.log(JSON.parse(resp.data), 6666)
+        console.log(that.globalData.buy_id, 333)
         console.log(i);
         //这里可能有BUG，失败也会执行这里,所以这里应该是后台返回过来的状态码为成功时，这里的success才+1
       },
@@ -96,7 +96,7 @@ App({
           data.i = i;
           data.success = success;
           data.fail = fail;
-          that.uploadimg(data);
+          that.uploadimgBuy(data);
         }
       }
     });

@@ -1,6 +1,6 @@
 // pages/baoxiao/baoxiao.js
-var utils = require("../../utils/util.js")
 var app = getApp()
+var utils = require("../../utils/util.js")
 Page({
 
   /**
@@ -30,7 +30,6 @@ Page({
   },
   submitHandlen: function(){
     var _this = this;
-
     app.uploadimgBuy({
       url: utils.baseUrl + "/User/CkClock/buy",
       path: _this.data.tempFilePaths,
@@ -38,7 +37,7 @@ Page({
         token: wx.getStorageSync('token'),
         deliver_time: _this.data.deliver_time,
         reason: _this.data.reason,
-        details: this.data.details
+        details: JSON.stringify(_this.data.details)
       },
       callback: function () {
         wx.switchTab({

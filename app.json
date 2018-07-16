@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/purchase/purchase",
     "pages/index/index",
+    "pages/purchase/purchase",
     "pages/apply/apply",
     "pages/reimb/reimb",
     "pages/clock/clock",
