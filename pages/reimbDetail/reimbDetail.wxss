@@ -1,0 +1,13 @@
+/* pages/reimbDetail/reimbDetail.wxss */
+.reimbDetail {
+  padding: 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+}
+.reimbDetail text {
+  width: 100%;
+}
+.reimbDetail image {
+  margin-top: 50rpx;
+}

@@ -17,3 +17,8 @@
   line-height: 200rpx;
   border:none;
 }
+.toast {
+  margin-top: 50rpx;
+  text-align: center;
+  color: red;
+}

@@ -1,6 +1,10 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/test/test",
+    "pages/myReimb/myReimb",
+    "pages/myapply/myapply",
+    "pages/wage/wage",
     "pages/purchase/purchase",
     "pages/apply/apply",
     "pages/reimb/reimb",
@@ -11,11 +15,12 @@
     "pages/logs/logs",
     "pages/declare/declare",
     "pages/trackItem/trackItem",
-    "pages/test/test",
-    "pages/wage/wage",
-    "pages/myapply/myapply",
     "pages/myapproval/myapproval",
-    "pages/cardrecord/cardrecord"
+    "pages/cardrecord/cardrecord",
+    "pages/purchDetail/purchDetail",
+    "pages/reimbDetail/reimbDetail",
+    "pages/detail/detail",
+    "pages/forgetpwd/forgetpwd"
   ],
   "window": {
     "backgroundTextStyle": "light",

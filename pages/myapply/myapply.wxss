@@ -1,1 +1,40 @@
 /* pages/myapply/myapply.wxss */
+.tab {
+  display: flex;
+  background: #fff;
+}
+
+.tab text {
+  flex: 1;
+  text-align: center;
+  line-height: 70rpx;
+  border-bottom: 1px solid #ddd;
+}
+.tab text.active {
+  color: green;
+  border-color: green;
+}
+.apply_item {
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+  margin-bottom: 20rpx;
+  padding:0 20rpx 20px;
+}
+.apply_item  text {
+  width: 100%;
+  font-size: 26rpx;
+}
+.apply_item navigator {
+  display: block;
+  width: 100%;
+}
+.progress {
+  width: 100%;
+  margin-top:20rpx;
+}
+.progress progress {
+  width: 70%;
+  display: inline-block;
+  margin-right: 20rpx;
+}

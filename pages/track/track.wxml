@@ -1,18 +1,8 @@
 <!--pages/track/track.wxml-->
 <view class='track'>
-  <view class='track_item'>
-    <navigator url="/pages/trackItem/trackItem">
-      <text>保安巡更</text>
-    </navigator>
-  </view>
-  <view class='track_item'>
-    <navigator url="/pages/trackItem/trackItem">
-      <text>保洁</text>
-    </navigator>
-  </view>
-  <view class='track_item'>
-    <navigator url="/pages/trackItem/trackItem">
-      <text>负责人检查</text>
+  <view class='track_item' wx:for="{{trackList}}" wx:key="{{index}}">
+    <navigator url="/pages/trackItem/trackItem?type={{item.id}}">
+      <text>{{item.name}}</text>
     </navigator>
   </view>
 </view>

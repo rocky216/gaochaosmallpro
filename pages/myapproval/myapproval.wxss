@@ -1,1 +1,51 @@
 /* pages/myapproval/myapproval.wxss */
+.tab {
+  display: flex;
+  background: #fff;
+}
+
+.tab text {
+  flex: 1;
+  text-align: center;
+  line-height: 70rpx;
+  border-bottom: 1px solid #ddd;
+}
+
+.tab text.active {
+  color: green;
+  border-color: green;
+}
+
+.leave {
+  padding:0 20rpx 20rpx;
+  background: #fff;
+  margin-top: 20rpx;
+  box-shadow: 0 0 5rpx #ddd;
+  position: relative;
+}
+.operation {
+  position: absolute;
+  bottom: 20rpx;
+  right: 20rpx;
+}
+.operation button {
+  margin-left: 30rpx;
+}
+
+.approval_item {
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+  margin-bottom: 20rpx;
+  padding:0 20rpx 20px;
+  position: relative;
+}
+
+.approval_item .operation{
+  top: 30rpx;
+}
+
+.approval_item navigator {
+  display: block;
+  width: 100%;
+}

@@ -1,0 +1,27 @@
+<!--pages/forgetpwd/forgetpwd.wxml-->
+<view class='forgetpwd'>
+  <view class='reimb_item'>
+    <label>
+      <view >
+        原始密码：<input bindinput="getOldpwd"></input>
+      </view>
+    </label>
+  </view>
+  <view class='reimb_item'>
+    <label>
+      <view >
+        密码：<input bindinput="getpwd"></input>
+      </view>
+    </label>
+  </view>
+  <view class='reimb_item'>
+    <label>
+      <view >
+        确认密码：<input bindinput="getrepwd"></input>
+      </view>
+    </label>
+  </view>
+  <view class='reimb_item'>
+    <button type='primary' bindtap='submitHandlen'>提交</button>
+  </view>
+</view>

@@ -1,0 +1,14 @@
+/* pages/forgetpwd/forgetpwd.wxss */
+.reimb_item {
+  background: #fff;
+  padding:30rpx 20rpx;
+  margin-top: 20rpx;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.reimb_item input {
+  text-align: right;
+  float: right;
+  width: 400rpx;
+}

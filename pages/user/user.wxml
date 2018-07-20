@@ -1,10 +1,10 @@
 <!--pages/user/user.wxml-->
 <view class='user'>
    <view class='head_wrap'>
-    <view class='head'>
-      <image src='/images/user_active.png'></image>
+    <view class='head' bindtap='uploadHead'>
+      <image src="{{userInfo.headimg}}"></image>
       <view>
-        <text>1888888888</text>
+        <text>{{userInfo.username}}</text>
       </view>
     </view>
   </view> 

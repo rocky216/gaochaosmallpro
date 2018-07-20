@@ -1,10 +1,13 @@
 // pages/user/user.js
+var utils = require("../../utils/util.js")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    host: utils.host,
+    userInfo: '',
     funcTypes:[
       {
         title: "请假",
@@ -41,6 +44,16 @@ Page({
         url: '/pages/myapproval/myapproval',
         image: '/images/my_approval.png'
       },
+      {
+        title: "我的报销",
+        url: '/pages/myReimb/myReimb',
+        image: '/images/my_reimb.png'
+      },
+      {
+        title: "修改密码",
+        url: '/pages/forgetpwd/forgetpwd',
+        image: '/images/forgetPsw.png'
+      }
     ]
   },
 
@@ -48,9 +61,43 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getUserInfo()
   },
-
+  uploadHead: function(){
+    var _this = this
+    wx.chooseImage({
+      success: function(res){
+        var tempFilePaths = res.tempFilePaths
+        console.log(tempFilePaths)
+        wx.uploadFile({
+          url: _this.data.host+"/Api/User/CkAccount/upload_headimg",
+          filePath: tempFilePaths[0],
+          name: 'headimg',
+          formData: {
+            token: wx.getStorageSync('token'),
+          },
+          success: function(data){
+            _this.getUserInfo()
+          }
+        })
+      }
+    })
+  },
+  getUserInfo: function(){
+    var _this = this
+    const options = {
+      url: "/User/CkAccount/get_user_info",
+      method: "post",
+      data: {
+        token: wx.getStorageSync('token'),
+      }
+    }
+    utils.fetch(options, function(res){
+      _this.setData({
+        userInfo: res
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

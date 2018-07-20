@@ -1,2 +1,49 @@
 <!--pages/myapply/myapply.wxml-->
-<text>pages/myapply/myapply.wxml</text>
+<view>
+  <view class='tab'>
+    <text class='{{tab==1?"active":""}}' bindtap='getApply' data-tab="1">我的请假</text>
+    <text class='{{tab==2?"active":""}}'  bindtap='getApply' data-tab="2">我的采购</text>
+  </view>
+  <view wx:if="{{tab==1}}">
+    <view class='apply_item' wx:for="{{leaveList}}" wx:key="{{index}}">
+      <text>
+        {{item.type}}
+      </text>
+      <text>
+        开始时间: {{item.start_time}}
+      </text>
+      <text>
+        结束时间: {{item.end_time}}
+      </text>
+      <text>
+        总天数： {{item.num_day}}天
+      </text>
+      <view class='progress'>
+        <progress percent="{{(item.status-1)*50}}" stroke-width="4" />
+        <text wx:if="{{item.status==1}}">待审核</text>
+        <text wx:if="{{item.status==2}}">经理已审核</text>
+        <text wx:if="{{item.status==3}}">审核通过</text>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{tab==2}}">
+    <view class='apply_item' wx:for="{{purchaseList}}" wx:key="{{index}}">
+      <navigator url="/pages/purchDetail/purchDetail?id={{item.id}}" >
+        <text>
+          事由: {{item.reason}}
+        </text>
+        <text>
+          申请时间: {{item.deliver_time}}
+        </text>
+        <view class='progress'>
+        <progress percent="{{(item.status-1)*50}}" stroke-width="4" />
+          <text wx:if="{{item.status==1}}">待审核</text>
+          <text wx:if="{{item.status==2}}">经理已审核</text>
+          <text wx:if="{{item.status==3}}">审核通过</text>
+        </view>
+      </navigator>
+    </view>
+  </view>
+
+</view>

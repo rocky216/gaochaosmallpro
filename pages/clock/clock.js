@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    animationData:{},
     isClock: true,
     isWifi: true,
     timer: null,
@@ -18,7 +19,9 @@ Page({
     state:false,
     lat: '',
     lon: '',
-    wifi: ''
+    wifi: '',
+    isFinsh: false,
+    timer: null
   }, 
 
   /**
@@ -44,6 +47,20 @@ Page({
   clockHandle: function(){
     var nowTime = new Date()
     var _this = this
+
+    if (this.data.flagStatus == 1 && !this.transfor("12:00")) {
+      wx.showModal({
+        title: '你早退了',
+        content: '是否打卡？',
+        success: function (data) {
+          if (data.confirm) {
+            _this.getClock()
+          }
+        }
+      })
+      return
+    }
+
     if (this.data.flagStatus == 1 && !this.transfor(this.data.workEndTime)){
       wx.showModal({
         title: '你早退了',
@@ -56,6 +73,7 @@ Page({
       })
       return 
     }
+    
     if (this.transfor(this.data.workStartTime) && !this.transfor("12:00")){
       wx.showModal({
         title: '你迟到了',
@@ -66,7 +84,7 @@ Page({
           }
         }
       })
-    } else if (this.transfor("12:00") && this.transfor(this.data.workEndTime)){
+    } else if (this.transfor("12:00") && !this.transfor(this.data.workEndTime)){
       wx.showModal({
         title: '你早退了',
         content: '是否打卡？',
@@ -77,9 +95,10 @@ Page({
         }
       })
     }
-
+    
   },
   getClock: function(){
+    this.animateRotate()
     var _this=this
     const options = {
       url: "/User/CkClock/clock",
@@ -94,6 +113,10 @@ Page({
         success: function(){
           setTimeout(function(){
             _this.whetherClock()
+            _this.setData({
+              state: true
+            })
+            clearInterval(_this.data.timer)
           },1500)
         }
       })
@@ -111,10 +134,10 @@ Page({
       }
     }
     utils.fetch(options, function(res){
-      console.log(res.state)
       if (parseInt(res.state)>1){
         _this.setData({
-          state: true
+          state: true,
+          isFinsh: true
         })
       }else{
         _this.setData({
@@ -134,7 +157,8 @@ Page({
       success: function () {
         wx.getConnectedWifi({
           success: function (res) {
-            if (res.wifi.BSSID==_this.data.wifi){
+            console.log(res.wifi)
+            if (res.wifi.SSID==_this.data.wifi){
               _this.setData({ isWifi: false })
             }else{
               _this.setData({ isWifi: true })
@@ -155,8 +179,7 @@ Page({
         var stand = res.accuracy
         _this.setData({ info: JSON.stringify(res)})
 
-        console.log(len, stand)
-        if (len <= stand){
+        if (len <= (stand + 100)){
           _this.setData({isClock: false})
         }else{
           _this.setData({ isClock: true })
@@ -185,6 +208,27 @@ Page({
 
     // let len = this.getDistance("27.1448", "114.99457", "27.12", "114.8977" )
     // console.log(len)
+
+    this.animation = wx.createAnimation({
+      duration: 1400,
+      transformOrigin: '50% 50%',
+      timingFunction: 'linear'
+    })
+
+  },
+  animateRotate: function(){
+    var n = 0,_this = this;
+    clearInterval(this.data.timer)
+    this.data.timer = setInterval(function () {
+      n = n + 1
+      _this.rotateAni(n)
+    }, 1400)
+  },
+  rotateAni: function (n) {
+    this.animation.rotate(360 * n).step()
+    this.setData({
+      animationData: this.animation.export()
+    })
   },
   getDistance: function (lat1, lng1, lat2, lng2) {
     lat1 = lat1 || 0;

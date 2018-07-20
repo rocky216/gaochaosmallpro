@@ -1,1 +1,18 @@
 /* pages/wage/wage.wxss */
+.wage_item {
+  padding: 20rpx;
+  background: #fff;
+  margin-top: 10rpx;
+}
+.wage_item text:nth-child(2){
+  float: right;
+}
+.info {
+  display: flex;
+  flex-wrap: wrap;
+  color: #666;
+}
+.info text {
+  width: 50%;
+  font-size: 26rpx;
+}

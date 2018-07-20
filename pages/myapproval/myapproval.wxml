@@ -1,2 +1,78 @@
 <!--pages/myapproval/myapproval.wxml-->
-<text>pages/myapproval/myapproval.wxml</text>
+<view class='tab'>
+  <text class='{{tab==1?"active":""}}' bindtap='getApproval' data-tab="1">请假</text>
+  <text class='{{tab==2?"active":""}}'  bindtap='getApproval' data-tab="2">采购</text>
+</view>
+<view wx:if="{{tab==1}}">
+  <view  class='leave' wx:for="{{leaveList}}" wx:key="{{index}}">
+    <text style='color:green;'>
+      申请人: {{item.member.username}}
+    </text>
+    <text>
+      {{item.type}}
+    </text>
+    <text>
+      {{item.start_time}}
+    </text>
+    <text>
+      {{item.end_time}}
+    </text>
+    <text>
+      {{item.num_day}}天
+    </text>
+    <text style='color:red;' wx:if="{{item.status==1}}">
+      未审核
+    </text>
+    <text style='color:red;' wx:if="{{item.status==2}}">
+      经理已审核
+    </text>
+    <text style='color:red;' wx:if="{{item.status==3}}">
+      审核通过
+    </text>
+    <text style='color:red;' wx:if="{{item.status==4}}">
+      经理拒绝
+    </text>
+    <text style='color:red;' wx:if="{{item.status==5}}">
+      总经理拒绝
+    </text>
+    <view wx:if="{{item.status<=2 && item.c_status==1}}" class='operation'>
+      <button size="mini" bindtap='agree' data-item="{{item}}" data-type="0">拒绝</button>
+      <button size="mini" type='primary' bindtap='agree' data-item="{{item}}" data-type="1" >同意</button>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{tab==2}}">
+  <view class='approval_item' wx:for="{{purchaseList}}" wx:key="{{index}}">
+    <navigator url="/pages/purchDetail/purchDetail?id={{item.id}}&tab={{tab}}" >
+      <text style='color:green;'>
+        申请人: {{item.member.username}}
+      </text>
+      <text>
+        事由: {{item.reason}}
+      </text>
+      <text>
+        申请时间: {{item.deliver_time}}
+      </text>
+      <text style='color:red;' wx:if="{{item.status==1}}">
+      未审核
+      </text>
+      <text style='color:red;' wx:if="{{item.status==2}}">
+        经理已审核
+      </text>
+      <text style='color:red;' wx:if="{{item.status==3}}">
+        审核通过
+      </text>
+      <text style='color:red;' wx:if="{{item.status==4}}">
+        经理拒绝
+      </text>
+      <text style='color:red;' wx:if="{{item.status==5}}">
+        总经理拒绝
+      </text>
+    </navigator>
+    <view class='operation' wx:if="{{item.status<=2 && item.c_status==1}}" >
+      <button size="mini" bindtap='agree' data-item="{{item}}" data-type="0">拒绝</button>
+      <button size="mini" type='primary' bindtap='agree' data-item="{{item}}" data-type="1" >同意</button>
+    </view>
+  </view>
+</view>

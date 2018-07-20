@@ -8,7 +8,10 @@
     </view>
   </view>
   <view class='clockBtn'>
-    <button type='primary' bindtap='clockHandle' disabled="{{state || (isClock && isWifi)}}" >打卡</button>
+    <button type='primary' bindtap='clockHandle'  disabled="{{state || (isClock && isWifi)}}" animation="{{animationData}}" >打卡</button>
+    <view class='toast' wx:if="{{isFinsh}}">
+      <text>今天卡已打满</text>
+    </view>
   </view>
    <!-- <text style='word-break:break-all;'>{{info}}</text>  -->
 </view>

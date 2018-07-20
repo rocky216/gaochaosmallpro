@@ -1,2 +1,6 @@
 <!--pages/cardrecord/cardrecord.wxml-->
-<text>pages/cardrecord/cardrecord.wxml</text>
+<view class='cardcode'>
+  <view>
+    
+  </view>
+</view>

@@ -1,2 +1,41 @@
 <!--pages/wage/wage.wxml-->
-<text>pages/wage/wage.wxml</text>
+<view class='wage'>
+
+  <view class='wage_item' wx:for="{{wages}}" wx:key="{{index}}" bindtap='handlenShow' data-index="{{index}}">
+    <text data-index="{{index}}">{{item.salary_time}}</text>
+    <text data-index="{{index}}">{{item.real_total}}</text>
+    <view class='info' wx:if="{{item.show}}">
+      <text>
+      本月天数: {{item.salary.day_num}}
+      </text>
+      <text>
+      应出勤天数: {{item.salary.all_work}}
+      </text>
+      <text>
+      基本工资: {{item.salary.salary}}
+      </text>
+      <text>
+      绩效: {{item.salary.achievements}}
+      </text>
+      <text>
+      岗位津贴: {{item.salary.allowance}}
+      </text>
+      <text>
+      节日补助: {{item.salary.subsidy}}
+      </text>
+      <text>
+      加班工资: {{item.salary.overtime_total}}
+      </text>
+      <text>
+      应发工资: {{item.salary.total}}
+      </text>
+      <text>
+      扣款: {{item.salary.debit}}
+      </text>
+      <text>
+      实发工资: {{item.salary.ready_total}}
+      </text>
+    </view>
+  </view>
+
+</view>

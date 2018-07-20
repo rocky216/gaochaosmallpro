@@ -29,6 +29,7 @@ Page({
     
   },
   submitHandlen: function(){
+    if (!this.check()) return;
     var _this = this;
     app.uploadimgBuy({
       url: utils.baseUrl + "/User/CkClock/buy",
@@ -45,6 +46,38 @@ Page({
         })
       }
     })
+  },
+  check: function(){
+    if (!this.data.reason){
+      wx.showToast({ title: '申请事由不能为空！',icon: "none",duration: 1500})
+      return false
+    }
+    if (!this.data.deliver_time) {
+      wx.showToast({ title: '期望交付日期不能为空！', icon: "none", duration: 1500 })
+      return false
+    }
+    if (!(this.data.tempFilePaths && this.data.tempFilePaths.length > 0)){
+      wx.showToast({ title: '请上传附件！', icon: "none", duration: 1500 })
+      return false
+    }
+    if (!this.checkList()){
+      wx.showToast({ title: '采购明细单项不能为空！', icon: "none", duration: 1500 })
+      return false
+    }
+    return true
+  },
+  checkList: function(){
+    var arr = this.data.details
+    var bStop = true
+    for (var index in arr){
+      for (var attr in arr[index]){
+        if (!arr[index][attr]) {
+          bStop = false
+          return bStop
+        }
+      }
+    }
+    return bStop
   },
   chooseImageTap: function () {
     var _this = this;

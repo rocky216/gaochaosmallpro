@@ -1,5 +1,10 @@
 const app = getApp();
-const baseUrl = "http://192.168.1.106/gaochao/Api";
+
+const baseUrl = "https://www.jiajgou.com/Api";
+const host = "https://www.jiajgou.com/"
+
+// const baseUrl = "http://192.168.1.106/gaochao/Api";
+// const host = "http://192.168.1.106/gaochao/"
 
 
 function extend(settings, opt) {
@@ -71,5 +76,6 @@ function fetch(opt, next, type = false) {
 
 module.exports = {
   fetch: fetch,
-  baseUrl: baseUrl
+  baseUrl: baseUrl,
+  host: host
 }

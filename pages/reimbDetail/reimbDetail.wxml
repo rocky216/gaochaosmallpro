@@ -1,0 +1,19 @@
+<!--pages/reimbDetail/reimbDetail.wxml-->
+<view class='reimbDetail'>
+  <text>
+    报销类型: {{details.type}}
+  </text>
+  <text>
+    报销事由: {{details.reason}}
+  </text>
+  <text>
+    发生时间: {{details.occur_time}}
+  </text>
+  <text>
+    费用金额: {{details.cost}}
+  </text>
+  <text>
+    费用说明: {{details.remark}}
+  </text>
+  <image wx:for="{{details.image}}" wx:key="{{index}}" src="{{host+item.image}}"></image>
+</view>

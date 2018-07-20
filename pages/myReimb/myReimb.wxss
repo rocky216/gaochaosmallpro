@@ -1,0 +1,18 @@
+/* pages/myReimb/myReimb.wxss */
+.myReimb_item {
+  display: flex;
+  background: #fff;
+  padding: 20rpx;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #ddd;
+  margin: 20rpx;
+  box-shadow: 0 0 10rpx #ddd;
+  border-radius: 10rpx;
+}
+.myReimb_item text {
+  width: 100%;
+}
+.myReimb_item navigator {
+  display: block;
+  width: 100%;
+}

@@ -37,14 +37,14 @@
     <view class='reimb_item'>
       <label>
         <view >
-          数量：<input bindinput="getNum" value='{{item.num}}' data-index="{{index}}"></input>
+          数量：<input type='number' bindinput="getNum" value='{{item.num}}' data-index="{{index}}"></input>
         </view>
       </label>
     </view>
     <view class='reimb_item'>
       <label>
         <view >
-          金额：<input bindinput="getMoney" value='{{item.money}}' data-index="{{index}}"></input>
+          金额：<input type='number' bindinput="getMoney" value='{{item.money}}' data-index="{{index}}"></input>
         </view>
       </label>
     </view>

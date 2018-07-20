@@ -34,4 +34,5 @@
 .head image {
   width: 100rpx;
   height: 100rpx;
+  border-radius: 50%;
 }

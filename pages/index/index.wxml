@@ -2,59 +2,32 @@
 <view class="container">
   <view class='swiper'>
     <swiper circular autoplay  >
-      <swiper-item>  
-        <image src="/images/banner_01.jpg" class="slide-image"  />  
-      </swiper-item>
-      <swiper-item>  
-        <image src="/images/banner_02.jpg" class="slide-image"  />  
+      <swiper-item wx:for="{{banners}}" wx:key="{{index}}">  
+        <image src="{{host+item.save_path}}" class="slide-image"  />  
       </swiper-item>
     </swiper>
   </view>
 
   <view class='scrollSwiper'>
     <scroll-view scroll-x  scroll-left='0' scroll-with-animation="true"  style=" white-space: nowrap; display: flex; " >
-      <view class='nav_item {{index==0?"active":""}}' wx:for="{{navList}}" wx:key="{{index}}" >
-        <view >{{item}}</view>
+      <view class='nav_item {{item.r_value==type?"active":""}}' wx:for="{{navList}}" wx:key="{{index}}" >
+        <view bindtap='getInfo' data-item="{{item}}">{{item.title}}</view>
       </view>
     </scroll-view>
   </view>
 
 <view>
-  <view class='news_item'>
-    <view>崔永元这条微博是想让周一华谊兄弟跌停啊！</view>
-    <view class='source'>
-      <text>庐陵公馆</text>
+  <view class='news_item' wx:for="{{infoList}}" wx:key="{{index}}">
+    <navigator url='/pages/detail/detail?id={{item.id}}'>
+      <view>{{item.title}}</view>
+      <view class='source'>{{item.desc}}</view>
       <view class='follow'>
-        <image src='/images/follow.png'></image>0
-      </view>
-    </view>
-    <view class='head'>
-      <image src='/images/anonymous.png'></image>
-    </view>
-  </view>
-  <view class='news_item'>
-    <view>崔永元这条微博是想让周一华谊兄弟跌停啊！</view>
-    <view class='source'>
-      <text>庐陵公馆</text>
-      <view class='follow'>
-        <image src='/images/follow.png'></image>0
-      </view>
-    </view>
-    <view class='head'>
-      <image src='/images/anonymous.png'></image>
-    </view>
-  </view>
-  <view class='news_item'>
-    <view>崔永元这条微博是想让周一华谊兄弟跌停啊！</view>
-    <view class='source'>
-      <text>庐陵公馆</text>
-      <view class='follow'>
-        <image src='/images/follow.png'></image>0
-      </view>
-    </view>
-    <view class='head'>
-      <image src='/images/anonymous.png'></image>
-    </view>
+          <text>{{item.add_time}}</text>
+        </view> 
+      <!-- <view class='head'>
+        <image src="{{host+item.cover}}"></image>
+      </view> -->
+    </navigator>
   </view>
 </view>
 

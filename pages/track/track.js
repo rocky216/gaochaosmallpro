@@ -1,20 +1,36 @@
 // pages/track/track.js
+var utils = require("../../utils/util.js")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    trackList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
-    
+    this.getTrack()
   },
-
+  getTrack: function(){
+    var _this = this
+    const options = {
+      url: "/User/CkClock/clockType",
+      method: "post",
+      data: {
+        token: wx.getStorageSync('token'),
+        // district_id: wx.getStorageSync('district_id')
+      }
+    }
+    utils.fetch(options, function(res){
+      _this.setData({
+        trackList: res
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
