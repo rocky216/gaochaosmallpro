@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/cardrecord/cardrecord",
     "pages/test/test",
     "pages/myReimb/myReimb",
     "pages/myapply/myapply",
@@ -16,7 +17,6 @@
     "pages/declare/declare",
     "pages/trackItem/trackItem",
     "pages/myapproval/myapproval",
-    "pages/cardrecord/cardrecord",
     "pages/purchDetail/purchDetail",
     "pages/reimbDetail/reimbDetail",
     "pages/detail/detail",
@@ -25,7 +25,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "高超物业管理",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

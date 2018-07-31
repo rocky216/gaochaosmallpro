@@ -28,10 +28,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // wx.showModal({
-    //   title: '12',
-    //   content: '12',
-    // })
+    console.log(this.data.state, this.data.isClock, this.data.wifi)
   },
   transfor: function(time, type=true){
     var d = new Date()
@@ -47,7 +44,7 @@ Page({
   clockHandle: function(){
     var nowTime = new Date()
     var _this = this
-
+    
     if (this.data.flagStatus == 1 && !this.transfor("12:00")) {
       wx.showModal({
         title: '你早退了',
@@ -95,7 +92,6 @@ Page({
         }
       })
     }
-    
   },
   getClock: function(){
     this.animateRotate()
@@ -113,9 +109,9 @@ Page({
         success: function(){
           setTimeout(function(){
             _this.whetherClock()
-            _this.setData({
-              state: true
-            })
+            // _this.setData({
+            //   state: true
+            // })
             clearInterval(_this.data.timer)
           },1500)
         }
@@ -133,20 +129,40 @@ Page({
         district_id: wx.getStorageSync('district_id')
       }
     }
-    utils.fetch(options, function(res){
-      if (parseInt(res.state)>1){
+    utils.fetch(options, (res)=>{
+      
+      if (parseInt(res.state)==2){
         _this.setData({
           state: true,
           isFinsh: true
         })
-      }else{
+      } else if (parseInt(res.state) == 3) {
+        wx.showToast({
+          title: '管理员未设置打卡模式或时间区域',
+          icon: 'none',
+          duration: 2000
+        })
+        _this.setData({
+          state: true
+        })
+      } else if (parseInt(res.state) == 4){
+        wx.showToast({
+          title: '小区管理员未设置管理员打卡方式',
+          icon: 'none',
+          duration: 2000
+        })
+        _this.setData({
+          state: true
+        })
+      } else{
         _this.setData({
           flagStatus: res.ck_clock,
           workStartTime: res.ck_model[0]["clock_time"],
           workEndTime: res.ck_model[1]["clock_time"],
           lat: res["ck_range"][0]["latitude"],
           lon: res["ck_range"][0]["longitude"],
-          wifi: res["ck_range"][0]["mac"],
+          wifi: res["ck_range"][0]["name"],
+          state: false
         })
       }
     })
@@ -173,6 +189,7 @@ Page({
     wx.getLocation({
       type: "gcj02",
       success: function(res){
+        console.log(res, 666)
         var lat = res.latitude
         var lon = res.longitude
         var len = _this.getDistance(lat, lon, _this.data.lon, _this.data.lat)
@@ -180,10 +197,11 @@ Page({
         _this.setData({ info: JSON.stringify(res)})
 
         if (len <= (stand + 100)){
-          _this.setData({isClock: false})
+          _this.setData({isClock: false}) 
         }else{
           _this.setData({ isClock: true })
         }
+        
       }
     })
   },
@@ -199,6 +217,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+  
     this.whetherClock()
     var _this = this;
     this.timer = setInterval(function () {

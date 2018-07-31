@@ -4,6 +4,6 @@
     <button type='primary' bindtap='chooseImageTap'>拍照上传</button>
   </view>
   <view >
-      <canvas canvasId="shenfu" style='background: #ccc; width: 1080px; height:1920px;' ></canvas>  
+      <canvas canvasId="shenfu" style='width: 1080px; height:1920px;' ></canvas>  
   </view>
 </view>

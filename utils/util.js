@@ -1,10 +1,10 @@
 const app = getApp();
 
-const baseUrl = "https://www.jiajgou.com/Api";
-const host = "https://www.jiajgou.com/"
+// const baseUrl = "https://www.jiajgou.com/Api";
+// const host = "https://www.jiajgou.com/"
 
-// const baseUrl = "http://192.168.1.106/gaochao/Api";
-// const host = "http://192.168.1.106/gaochao/"
+const baseUrl = "http://192.168.1.108/gaochao/Api";
+const host = "http://192.168.1.108/gaochao/"
 
 
 function extend(settings, opt) {
@@ -49,11 +49,11 @@ function fetch(opt, next, type = false) {
             duration: 1500
           });
           
-        } else if (data.status == "-1"){
+        } else if (data.status == "-1" || data.status == "-2"){
           wx.reLaunch({
             url: "/pages/login/login"
           })
-        }else{
+        } else{
           next(data.info);
           // wx.setStorageSync(cache_key, data.res)
         }

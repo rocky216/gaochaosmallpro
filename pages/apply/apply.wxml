@@ -28,7 +28,7 @@
    <view class='reimb_item'>
       <label>
         <view >
-          费用金额：<span>元</span><input type="number" value="{{money}}" bindinput="getMoney">sa</input>
+          费用金额：<span>元</span><input type="digit" value="{{money}}" bindinput="getMoney">sa</input>
         </view>
       </label>
    </view>

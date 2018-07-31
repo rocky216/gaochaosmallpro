@@ -1,6 +1,45 @@
 <!--pages/cardrecord/cardrecord.wxml-->
-<view class='cardcode'>
-  <view>
+<view class='cardrecord'>
+  <view class='members' wx:if="{{members && members.length>0}}">
+    <label>
+      <picker range="{{members}}" value="{{index}}" range-key="{{'username'}}" bindchange="memberHandlen">
+        <view >
+          员工记录：<text>{{index>-1?members[index]["username"]:''}}</text>
+        </view>
+      </picker>
+    </label>
+  </view>
+  
+  <view class='nowDate'>
+    <text bindtap='getPreMonth'>《</text>
+    <text>{{nowDate}}</text>
+    <text bindtap='getNextMonth'>》</text>
+  </view>
+  <view class='weeks'>
+    <text wx:for="{{weeks}}" wx:key="{{index}}">{{item}}</text>
+  </view>
+  <view class='days'>
+    <view class='{{day==item.day?"active":""}}' style="margin-left:{{!index?isWeek*14.2+'%':''}}" wx:for="{{days}}" wx:key="{{index}}" bindtap='getInfo' data-item="{{item}}" >
+      <text class='day'>{{item.day}}</text>
+      <text wx:if="{{!item.info}}" class='colorRed'></text>
+      <text wx:if="{{item.info.state==1}}" class='colorGreen'>.</text> 
+      <text wx:if="{{item.info.state==0 }}" class='colorRed'>.</text> 
+    </view>
+  </view>
+  <view class='infonone' wx:if="{{info==''}}">
+    <text>
+      当天没有打卡记录
+    </text>
+  </view>
+  <view class='infoWrap' wx:if="{{info}}" >
+    <view class='info_item' wx:for="{{info.desc}}" wx:key="{{index}}">
+      <text>打卡时间{{item.add_time}}</text>
+      <text wx:if="{{item.type==1}}">上班卡</text>
+      <text  wx:if="{{item.type==2}}">下班卡</text>
+      <text  wx:if="{{item.status==1}}">正常</text>
+      <text wx:if="{{item.status==2}}">早退</text>
+      <text wx:if="{{item.status==3}}">迟到</text>
+    </view>
     
   </view>
 </view>

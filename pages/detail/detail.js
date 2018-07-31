@@ -16,6 +16,9 @@ Page({
   onLoad: function (options) {
     this.getDetail(options.id)
   },
+  strReplace: function(str){
+    return str.replace(/\/Uploads\/UserFile\/Image\//g, utils.host + '/Uploads/UserFile/Image/')
+  },
   getDetail: function(id){
     var _this = this;
     const options = {
@@ -30,7 +33,7 @@ Page({
       
       _this.setData({
         detail: res,
-        article: res.remark // WxParse.wxParse('article', 'html', res.remark, _this, 5)
+        article: _this.strReplace(res.remark)// WxParse.wxParse('article', 'html', res.remark, _this, 5)
       })
       WxParse.wxParse('article', 'html', _this.data.article, _this, 5); 
     })
