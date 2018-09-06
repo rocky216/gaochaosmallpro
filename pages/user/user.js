@@ -63,6 +63,12 @@ Page({
   onLoad: function (options) {
     this.getUserInfo()
   },
+  loginout: function(){
+    wx.removeStorageSync("token")
+    wx.reLaunch({
+      url: "/pages/login/login"
+    })
+  },
   uploadHead: function(){
     var _this = this
     wx.chooseImage({

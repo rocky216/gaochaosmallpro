@@ -18,5 +18,12 @@
         </view>
       </navigator>
     </view>
+
+    <view class='func_item' bindtap="loginout">
+      <image src="/images/loginout.png"></image>
+      <view>
+        <text>退出登录</text>
+      </view>
+    </view>
   </view>
 </view>
